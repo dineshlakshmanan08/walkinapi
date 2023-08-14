@@ -40,7 +40,7 @@ public class UserDto{
 
     public bool? NoticePeriod { get; set; }
 
-    public DateOnly? NoticePeriodEndDate { get; set; }
+    public string? NoticePeriodEndDate { get; set; }
 
     public int? NoticePeriodDurationInMonth { get; set; }
 
@@ -50,8 +50,11 @@ public class UserDto{
 
     public string? ProfileImage { get; set; }
 
+    public List<int>? Userpreferredrole {get; set;}
 
-
+    public List<int>? Userexpertisetech {get; set;}
+    
+    public List<int>? Userfamiliartech {get; set;}
  
 }
   

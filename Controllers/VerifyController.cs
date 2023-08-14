@@ -52,8 +52,9 @@ public class VerifyController : ControllerBase
                hashedPassword = builder.ToString();
             }
             using var commands = new MySqlCommand(
-            "Select Password_user,gui_id from users Where Password_user = @Password", connection);
-             commands.Parameters.AddWithValue("@Password", verify.Password);
+            "Select Password_user,gui_id from users Where Password_user = @Password && Email_id = @Email", connection);
+             commands.Parameters.AddWithValue("@Password", hashedPassword);
+              commands.Parameters.AddWithValue("@Email", verify.Email);
         int rowCountP = 0;
         string guid_id = "";
          using (MySqlDataReader reader = commands.ExecuteReader())
