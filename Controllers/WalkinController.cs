@@ -128,7 +128,7 @@ public class WalkinController : ControllerBase
  RoleName = reader.GetString("Role_name"),
   Descriptions = reader.GetString("Descriptions"),
    Requirements = reader.GetString("Requirements"),
-                    // Other properties...
+                   
                 };
                 walkins.Add(walkin);
             }
