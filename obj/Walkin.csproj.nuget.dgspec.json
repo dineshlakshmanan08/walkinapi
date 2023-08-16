@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\a\\walkin\\Walkin.csproj": {}
+    "C:\\a\\Walkin\\Walkin.csproj": {}
   },
   "projects": {
-    "C:\\a\\walkin\\Walkin.csproj": {
+    "C:\\a\\Walkin\\Walkin.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\a\\walkin\\Walkin.csproj",
+        "projectUniqueName": "C:\\a\\Walkin\\Walkin.csproj",
         "projectName": "Walkin",
-        "projectPath": "C:\\a\\walkin\\Walkin.csproj",
+        "projectPath": "C:\\a\\Walkin\\Walkin.csproj",
         "packagesPath": "C:\\Users\\dinesh.lakshmanan\\.nuget\\packages\\",
-        "outputPath": "C:\\a\\walkin\\obj\\",
+        "outputPath": "C:\\a\\Walkin\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\dinesh.lakshmanan\\AppData\\Roaming\\NuGet\\NuGet.Config"

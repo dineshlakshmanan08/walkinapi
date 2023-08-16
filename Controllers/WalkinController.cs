@@ -93,4 +93,62 @@ public class WalkinController : ControllerBase
     }
 
     }
+
+    [HttpGet]
+    public IActionResult getWalkins(){
+                using var connection = new MySqlConnection(Str);
+        try {
+          
+                connection.Open();
+              using var command = new MySqlCommand(
+            "SELECT w.*,r.* FROM walkin w LEFT JOIN walkinroles wr ON w.Walkin_id = wr.Walkin_id LEFT JOIN roles r ON r.Role_id = wr.Role_id", connection);
+            
+              using MySqlDataReader reader = command.ExecuteReader();
+            var walkins = new List<WalkinDt>();
+
+            while (reader.Read())
+            {
+                var walkin = new WalkinDt
+                {
+                   
+                    Title = reader.GetString("Title"),
+                    GeneralInstructions = reader.GetString("General_instructions"),
+                     StartDate = reader.GetString("Start_date"),
+                      EndDate = reader.GetString("End_date"),
+                       Location = reader.GetString("Location"),
+                        Internship = reader.GetString("Internship"),
+                         InstructionsForExam = reader.GetString("Instructions_for_exam"),
+                          MinimumRequirements = reader.GetString("Minimum_requirements"),
+                          Processes = reader.GetString("Processes"),
+
+                          WalkinVenue = reader.GetString("Walkin_venue"),
+                          ThingsToRemember = reader.GetString("Things_to_remember"),
+                           walkinRole = reader.GetInt32("Role_id"),
+                            Package = reader.GetInt32("Package"),
+ RoleName = reader.GetString("Role_name"),
+  Descriptions = reader.GetString("Descriptions"),
+   Requirements = reader.GetString("Requirements"),
+                    // Other properties...
+                };
+                walkins.Add(walkin);
+            }
+
+            return Ok(walkins);
+      
+        int rowsAffected = command.ExecuteNonQuery();
+
+        if (rowsAffected > 0)
+        {
+            return Ok("Walkin Fetched  successfully.");
+        }
+        else
+        {
+            
+            return BadRequest("Failed to fetch walkin.");
+        }
+            
+        }catch(Exception ex){
+            return BadRequest(ex.Message);
+        }
+    }
 }
